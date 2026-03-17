@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:padding="30dp"
+    android:background="#FFFFFF">
+
+    <ImageView
+        android:layout_width="120dp"
+        android:layout_height="120dp"
+        android:src="@drawable/ic_launcher_foreground"
+        android:background="@drawable/card_background"
+        android:layout_marginBottom="20dp"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PetCare App"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        android:textColor="#2196F3"/>
+
+    <EditText
+        android:id="@+id/etUserName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Ingresa tu nombre"
+        android:layout_marginTop="20dp"
+        android:inputType="textPersonName"/>
+
+    <EditText
+        android:id="@+id/etUserEmail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Correo electrónico"
+        android:layout_marginTop="10dp"
+        android:inputType="textEmailAddress"/>
+
+    <EditText
+        android:id="@+id/etUserPhone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Teléfono de contacto"
+        android:layout_marginTop="10dp"
+        android:inputType="phone"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Cómo quieres ingresar?"
+        android:layout_marginTop="25dp"
+        android:textColor="#666666"/>
+
+    <Button
+        android:id="@+id/btnEnterAsOwner"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="SOY DUEÑO"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#4CAF50"/>
+
+    <Button
+        android:id="@+id/btnEnterAsCaretaker"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="SOY CUIDADOR"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#2196F3"/>
+
+    <Button
+        android:id="@+id/btnGoToDashboard"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:text="VER CATÁLOGO"
+        android:layout_marginTop="15dp"
+        android:backgroundTint="#E50914"
+        android:textColor="#FFFFFF" />
+
+</LinearLayout>

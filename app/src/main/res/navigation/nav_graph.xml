@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/loginFragment">
+
+    <fragment
+        android:id="@+id/loginFragment"
+        android:name="com.example.petcare.ui.login.LoginFragment"
+        android:label="Bienvenido"
+        tools:layout="@layout/fragment_login">
+
+        <action
+            android:id="@+id/action_loginFragment_to_dashboardFragment"
+            app:destination="@id/dashboardFragment" />
+
+        <action
+            android:id="@+id/action_loginFragment_to_petProfileFragment"
+            app:destination="@id/petProfileFragment" />
+        <action
+            android:id="@+id/action_loginFragment_to_createServiceFragment"
+            app:destination="@id/createServiceFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/dashboardFragment"
+        android:name="com.example.petcare.ui.dashboard.DashboardFragment"
+        android:label="Explorar PetCare"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_caretakerPublicViewFragment"
+            app:destination="@id/caretakerPublicViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/petProfileFragment"
+        android:name="com.example.petcare.ui.pet.PetProfileFragment"
+        android:label="Ficha de Mascota"
+        tools:layout="@layout/fragment_pet_profile">
+        <action
+            android:id="@+id/action_petProfileFragment_to_serviceListFragment"
+            app:destination="@id/serviceListFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/serviceListFragment"
+        android:name="com.example.petcare.ui.service.ServiceListFragment"
+        android:label="Cuidadores Disponibles"
+        tools:layout="@layout/fragment_service_list">
+        <action
+            android:id="@+id/action_serviceListFragment_to_caretakerPublicViewFragment"
+            app:destination="@id/caretakerPublicViewFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/caretakerPublicViewFragment"
+        android:name="com.example.petcare.ui.caretaker.CaretakerPublicViewFragment"
+        android:label="Detalle del Cuidador"
+        tools:layout="@layout/fragment_caretaker_public_view">
+        <action
+            android:id="@+id/action_caretakerPublicViewFragment_to_ratingFragment"
+            app:destination="@id/ratingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/availablePetsFragment"
+        android:name="com.example.petcare.ui.caretaker.AvailablePetsFragment"
+        android:label="Mascotas Disponibles"
+        tools:layout="@layout/fragment_available_pets" />
+
+    <fragment
+        android:id="@+id/createServiceFragment"
+        android:name="com.example.petcare.ui.service.CreateServiceFragment"
+        android:label="Mis Habilidades"
+        tools:layout="@layout/fragment_create_service">
+        <action
+            android:id="@+id/action_createServiceFragment_to_availablePetsFragment"
+            app:destination="@id/availablePetsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/ratingFragment"
+        android:name="com.example.petcare.ui.rating.RatingFragment"
+        android:label="Calificar"
+        tools:layout="@layout/rating_layout" />
+
+</navigation>
