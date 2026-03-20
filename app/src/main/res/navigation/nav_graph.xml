@@ -5,35 +5,47 @@
     android:id="@+id/nav_graph"
     app:startDestination="@id/loginFragment">
 
+    <!-- 1. Pantalla de Inicio: Login -->
     <fragment
         android:id="@+id/loginFragment"
         android:name="com.example.petcare.ui.login.LoginFragment"
         android:label="Bienvenido"
         tools:layout="@layout/fragment_login">
 
+        <!-- Navegar al Dashboard principal -->
         <action
             android:id="@+id/action_loginFragment_to_dashboardFragment"
             app:destination="@id/dashboardFragment" />
 
+        <!-- Navegar directamente a crear perfil (si es nuevo usuario) -->
         <action
             android:id="@+id/action_loginFragment_to_petProfileFragment"
             app:destination="@id/petProfileFragment" />
+
+        <!-- Navegar a servicios (si es cuidador) -->
         <action
             android:id="@+id/action_loginFragment_to_createServiceFragment"
             app:destination="@id/createServiceFragment" />
     </fragment>
 
+    <!-- 2. Dashboard: Punto de control principal -->
     <fragment
         android:id="@+id/dashboardFragment"
         android:name="com.example.petcare.ui.dashboard.DashboardFragment"
         android:label="Explorar PetCare"
         tools:layout="@layout/fragment_dashboard">
 
+        <!-- ACCIÓN CLAVE: Ir al catálogo de la API de Huachitos -->
+        <action
+            android:id="@+id/action_dashboardFragment_to_availablePetsFragment"
+            app:destination="@id/availablePetsFragment" />
+
         <action
             android:id="@+id/action_dashboardFragment_to_caretakerPublicViewFragment"
             app:destination="@id/caretakerPublicViewFragment" />
     </fragment>
 
+    <!-- 3. Perfil de Mascota -->
     <fragment
         android:id="@+id/petProfileFragment"
         android:name="com.example.petcare.ui.pet.PetProfileFragment"
@@ -44,6 +56,7 @@
             app:destination="@id/serviceListFragment" />
     </fragment>
 
+    <!-- 4. Lista de Cuidadores (Room DB) -->
     <fragment
         android:id="@+id/serviceListFragment"
         android:name="com.example.petcare.ui.service.ServiceListFragment"
@@ -54,6 +67,7 @@
             app:destination="@id/caretakerPublicViewFragment" />
     </fragment>
 
+    <!-- 5. Detalle del Cuidador -->
     <fragment
         android:id="@+id/caretakerPublicViewFragment"
         android:name="com.example.petcare.ui.caretaker.CaretakerPublicViewFragment"
@@ -64,26 +78,30 @@
             app:destination="@id/ratingFragment" />
     </fragment>
 
+    <!-- 6. CATÁLOGO DE LA API (Huachitos) -->
     <fragment
         android:id="@+id/availablePetsFragment"
         android:name="com.example.petcare.ui.caretaker.AvailablePetsFragment"
-        android:label="Mascotas Disponibles"
+        android:label="Mascotas Disponibles (API)"
         tools:layout="@layout/fragment_available_pets" />
 
+    <!-- 7. Crear Servicio (Habilidades del cuidador) -->
     <fragment
         android:id="@+id/createServiceFragment"
         android:name="com.example.petcare.ui.service.CreateServiceFragment"
         android:label="Mis Habilidades"
         tools:layout="@layout/fragment_create_service">
+        <!-- Permite ir al catálogo después de crear el servicio -->
         <action
             android:id="@+id/action_createServiceFragment_to_availablePetsFragment"
             app:destination="@id/availablePetsFragment" />
     </fragment>
 
+    <!-- 8. Sistema de Calificaciones -->
     <fragment
         android:id="@+id/ratingFragment"
         android:name="com.example.petcare.ui.rating.RatingFragment"
         android:label="Calificar"
-        tools:layout="@layout/rating_layout" />
+        tools:layout="@layout/fragment_rating" />
 
 </navigation>
