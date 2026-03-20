@@ -1,5 +1,6 @@
 package com.example.petcare.data.local
 
+import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
@@ -12,11 +13,11 @@ interface ServiceDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertService(service: Service)
 
-    // CAMBIAMOS EL NOMBRE AQUÍ PARA QUE COINCIDA CON EL DASHBOARD
+
     @Query("SELECT * FROM services")
     suspend fun getAllServicesSync(): List<Service>
 
     // Opcional: Si necesitas observar cambios en tiempo real en otras pantallas
-    // @Query("SELECT * FROM services")
-    // fun getAllServicesLiveData(): LiveData<List<Service>>
+     @Query("SELECT * FROM services")
+    fun getAllServicesLiveData(): LiveData<List<Service>>
 }

@@ -2,13 +2,15 @@ package com.example.petcare.ui.dashboard
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.petcare.R
-import com.example.petcare.adapter.AvailablePetsAdapter
-import com.example.petcare.adapter.ServiceAdapter
+import com.example.petcare.adapter.HuachitoAdapter // Para la API (Mascotas)
+import com.example.petcare.adapter.ServiceAdapter  // Para Room (Cuidadores)
 import com.example.petcare.data.local.AppDatabase
+import com.example.petcare.data.remote.RetrofitClient
 import com.example.petcare.databinding.FragmentDashboardBinding
 import kotlinx.coroutines.launch
 
@@ -21,37 +23,29 @@ class DashboardFragment : Fragment(R.layout.fragment_dashboard) {
         super.onViewCreated(view, savedInstanceState)
         _binding = FragmentDashboardBinding.bind(view)
 
-        // Inicializar la base de datos
         val db = AppDatabase.getDatabase(requireContext())
 
-        // 1. Configurar RecyclerView de MASCOTAS (Horizontal)
-        // Pasamos una lista mutable vacía al inicio
-        val petAdapter = AvailablePetsAdapter(mutableListOf())
-        binding.rvPetsNetflix.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = petAdapter
-        }
+        // 1. Configurar RecyclerView de MASCOTAS de la API (Horizontal)
+        binding.rvPetsNetflix.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        // 2. Configurar RecyclerView de SERVICIOS (Horizontal)
-        val serviceAdapter = ServiceAdapter(mutableListOf())
-        binding.rvServicesNetflix.apply {
-            layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
-            adapter = serviceAdapter
-        }
+        // 2. Configurar RecyclerView de CUIDADORES de la Base de Datos (Horizontal)
+        binding.rvServicesNetflix.layoutManager = LinearLayoutManager(requireContext(), LinearLayoutManager.HORIZONTAL, false)
 
-        // 3. Cargar datos desde Room usando Corrutinas
+        // 3. Cargar ambos datos usando Corrutinas
         viewLifecycleOwner.lifecycleScope.launch {
             try {
-                // Obtenemos los datos de la DB
-                val petsFromDb = db.petDao().getAllPetsSync()
-                val servicesFromDb = db.serviceDao().getAllServicesSync()
+                // --- PARTE A: TRAER MASCOTAS DE LA API (HUACHITOS) ---
+                val huachitosResponse = RetrofitClient.instance.getHuachitos()
+                // Usamos HuachitoAdapter porque procesa los datos de internet y usa Glide
+                binding.rvPetsNetflix.adapter = HuachitoAdapter(huachitosResponse.data)
 
-                // Actualizamos los adaptadores con los datos reales
-                petAdapter.updateList(petsFromDb)
-                serviceAdapter.updateList(servicesFromDb)
+                // --- PARTE B: TRAER CUIDADORES DE LA BASE DE DATOS LOCAL ---
+                val servicesFromDb = db.serviceDao().getAllServicesSync()
+                binding.rvServicesNetflix.adapter = ServiceAdapter(servicesFromDb.toMutableList())
 
             } catch (e: Exception) {
-                // Si hay error (ej. tabla vacía), lo imprime en consola
+                // Si no hay internet o la DB está vacía, mostramos un error
+                Toast.makeText(requireContext(), "Error al cargar el Dashboard", Toast.LENGTH_SHORT).show()
                 e.printStackTrace()
             }
         }
