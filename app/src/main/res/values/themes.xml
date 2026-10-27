@@ -1,14 +1,28 @@
-
 <resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Vanguard Material 3 Theme -->
     <style name="Theme.PetCare" parent="Theme.Material3.DayNight.NoActionBar">
-        <item name="colorPrimary">#4CAF50</item>
+        <!-- Primary brand color. -->
+        <item name="colorPrimary">@color/vanguard_indigo</item>
         <item name="colorOnPrimary">@color/white</item>
-
-        <item name="colorSecondary">#FF9800</item>
+        <item name="colorPrimaryContainer">@color/vanguard_indigo_light</item>
+        <item name="colorOnPrimaryContainer">@color/vanguard_indigo_dark</item>
+        
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/vanguard_cyan</item>
         <item name="colorOnSecondary">@color/white</item>
+        <item name="colorSecondaryContainer">@color/vanguard_cyan</item>
 
-        <item name="android:navigationBarColor">@android:color/transparent</item>
-        <item name="android:statusBarColor">@android:color/transparent</item>
-        <item name="android:windowLightStatusBar">true</item>
+        <!-- Tertiary brand color. -->
+        <item name="colorTertiary">@color/vanguard_rose</item>
+        
+        <!-- Status bar and navigation bar. -->
+        <item name="android:statusBarColor">@color/vanguard_indigo</item>
+        <item name="android:windowLightStatusBar">false</item>
+        <item name="android:navigationBarColor">@color/background_light</item>
+
+        <!-- Background and surface. -->
+        <item name="android:windowBackground">@color/background_light</item>
+        <item name="colorSurface">@color/surface_light</item>
+        <item name="colorOnSurface">@color/text_dark</item>
     </style>
 </resources>

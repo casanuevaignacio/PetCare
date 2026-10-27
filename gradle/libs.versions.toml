@@ -1,6 +1,6 @@
 [versions]
-agp = "8.7.2"
-kotlin = "1.9.22"
+agp = "8.13.2"
+kotlin = "2.0.21"
 coreKtx = "1.13.1"
 ksp = "2.0.21-1.0.28"
 room = "2.6.1"
@@ -51,6 +51,4 @@ navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx",
 android-application = { id = "com.android.application", version.ref = "agp" }
 kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 kotlin-compose = { id = "org.jetbrains.kotlin.plugin.compose", version.ref = "kotlin" }
-# Añade esta línea:
 ksp = { id = "com.google.devtools.ksp", version.ref = "ksp" }
-
