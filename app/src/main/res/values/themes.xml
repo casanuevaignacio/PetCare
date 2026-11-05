@@ -1,22 +1,22 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Vanguard Material 3 Theme -->
+    <!-- Senior Vanguard Pastel PetCare Theme -->
     <style name="Theme.PetCare" parent="Theme.Material3.DayNight.NoActionBar">
         <!-- Primary brand color. -->
-        <item name="colorPrimary">@color/vanguard_indigo</item>
+        <item name="colorPrimary">@color/sage_primary</item>
         <item name="colorOnPrimary">@color/white</item>
-        <item name="colorPrimaryContainer">@color/vanguard_indigo_light</item>
-        <item name="colorOnPrimaryContainer">@color/vanguard_indigo_dark</item>
+        <item name="colorPrimaryContainer">@color/sage_light</item>
+        <item name="colorOnPrimaryContainer">@color/sage_dark</item>
         
         <!-- Secondary brand color. -->
-        <item name="colorSecondary">@color/vanguard_cyan</item>
+        <item name="colorSecondary">@color/peach_secondary</item>
         <item name="colorOnSecondary">@color/white</item>
-        <item name="colorSecondaryContainer">@color/vanguard_cyan</item>
+        <item name="colorSecondaryContainer">@color/warm_yellow</item>
 
         <!-- Tertiary brand color. -->
-        <item name="colorTertiary">@color/vanguard_rose</item>
+        <item name="colorTertiary">@color/lavender_accent</item>
         
         <!-- Status bar and navigation bar. -->
-        <item name="android:statusBarColor">@color/vanguard_indigo</item>
+        <item name="android:statusBarColor">@color/sage_primary</item>
         <item name="android:windowLightStatusBar">false</item>
         <item name="android:navigationBarColor">@color/background_light</item>
 

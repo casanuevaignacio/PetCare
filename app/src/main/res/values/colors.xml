@@ -1,33 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Vanguard Modern Palette (2025/2026 Edition) -->
-    <color name="vanguard_indigo">#4F46E5</color>
-    <color name="vanguard_indigo_dark">#4338CA</color>
-    <color name="vanguard_indigo_light">#818CF8</color>
-    <color name="vanguard_cyan">#06B6D4</color>
-    <color name="vanguard_emerald">#10B981</color>
-    <color name="vanguard_rose">#F43F5E</color>
+    <!-- Base Pastel Hex Values (Senior PetCare Palette) -->
+    <color name="sage_primary">#34D399</color>
+    <color name="sage_dark">#059669</color>
+    <color name="sage_light">#A7F3D0</color>
+    <color name="peach_secondary">#FB923C</color>
+    <color name="sky_blue">#60A5FA</color>
+    <color name="lavender_accent">#A78BFA</color>
+    <color name="sky_light">#E0F2FE</color>
+    <color name="warm_yellow">#FEF3C7</color>
     
-    <!-- Professional Neutrals -->
-    <color name="background_light">#F8FAFC</color>
+    <!-- Professional Warm Neutrals -->
+    <color name="background_light">#FAF8F5</color>
     <color name="surface_light">#FFFFFF</color>
-    <color name="text_dark">#0F172A</color>
+    <color name="text_dark">#1E293B</color>
     <color name="text_gray">#64748B</color>
     <color name="border_color">#E2E8F0</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
-    <color name="purple_500">#4F46E5</color>
+    <color name="purple_500">#34D399</color>
 
     <!-- Backward Compatibility Aliases for Pastel Palette -->
-    <color name="pastel_blue">@color/vanguard_indigo</color>
-    <color name="pastel_blue_light">@color/vanguard_indigo_light</color>
-    <color name="pastel_yellow">@color/vanguard_rose</color>
-    <color name="pastel_green">@color/vanguard_emerald</color>
-    <color name="pastel_green_light">@color/vanguard_emerald</color>
+    <color name="pastel_blue">@color/sky_blue</color>
+    <color name="pastel_blue_light">@color/sky_light</color>
+    <color name="pastel_yellow">@color/warm_yellow</color>
+    <color name="pastel_green">@color/sage_primary</color>
+    <color name="pastel_green_light">@color/sage_light</color>
+
+    <!-- Vanguard Mapping Aliases for Layouts -->
+    <color name="vanguard_indigo">@color/sage_dark</color>
+    <color name="vanguard_indigo_dark">@color/sage_dark</color>
+    <color name="vanguard_indigo_light">@color/sage_light</color>
+    <color name="vanguard_cyan">@color/sky_blue</color>
+    <color name="vanguard_emerald">@color/sage_primary</color>
+    <color name="vanguard_rose">@color/peach_secondary</color>
 
     <!-- Theme Aliases -->
-    <color name="colorPrimary">@color/vanguard_indigo</color>
-    <color name="colorPrimaryVariant">@color/vanguard_indigo_dark</color>
-    <color name="colorSecondary">@color/vanguard_cyan</color>
-    <color name="colorAccent">@color/vanguard_rose</color>
+    <color name="colorPrimary">@color/sage_primary</color>
+    <color name="colorPrimaryVariant">@color/sage_dark</color>
+    <color name="colorSecondary">@color/peach_secondary</color>
+    <color name="colorAccent">@color/lavender_accent</color>
 </resources>

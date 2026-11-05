@@ -15,7 +15,6 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        // IMPORTANTE: Asegúrate de tener una Toolbar con este ID en activity_main.xml
         val toolbar = findViewById<Toolbar>(R.id.toolbar)
         setSupportActionBar(toolbar)
 
@@ -26,6 +25,12 @@ class MainActivity : AppCompatActivity() {
 
         navController?.let {
             setupActionBarWithNavController(it)
+        }
+
+        toolbar.setNavigationOnClickListener {
+            if (navController?.navigateUp() != true) {
+                onBackPressedDispatcher.onBackPressed()
+            }
         }
     }
 
